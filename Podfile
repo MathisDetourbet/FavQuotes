@@ -6,6 +6,7 @@ target 'FavQuotes' do
   use_frameworks!
 
   # Pods for FavQuotes
+  pod 'Alamofire', '~> 5.0'
 
   target 'FavQuotesTests' do
     inherit! :search_paths
