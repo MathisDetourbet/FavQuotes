@@ -3,13 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF89ED24729DBF002F1268 /* AppDelegate.swift */; };
-		51BF89F224729DBF002F1268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF89F124729DBF002F1268 /* ViewController.swift */; };
-		51BF89F524729DBF002F1268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F324729DBF002F1268 /* Main.storyboard */; };
 		51BF89F724729DC0002F1268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F624729DC0002F1268 /* Assets.xcassets */; };
 		51BF89FA24729DC0002F1268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */; };
 		51BF8A0524729DC0002F1268 /* FavQuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF8A0424729DC0002F1268 /* FavQuotesTests.swift */; };
@@ -43,8 +41,6 @@
 		26CB49B6A8B8BA3843B22745 /* Pods-FavQuotes-FavQuotesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavQuotes-FavQuotesUITests.debug.xcconfig"; path = "Target Support Files/Pods-FavQuotes-FavQuotesUITests/Pods-FavQuotes-FavQuotesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		51BF89EA24729DBF002F1268 /* FavQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BF89ED24729DBF002F1268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51BF89F124729DBF002F1268 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		51BF89F424729DBF002F1268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51BF89F624729DC0002F1268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51BF89F924729DC0002F1268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51BF89FB24729DC0002F1268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +95,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		51838E3F2473DC21003FF660 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		51838E402473DC2E003FF660 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		51838E412473DD1E003FF660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		51838E422473DD26003FF660 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				51BF89F624729DC0002F1268 /* Assets.xcassets */,
+				51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		51838E432473DD33003FF660 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		51BF89E124729DBF002F1268 = {
 			isa = PBXGroup;
 			children = (
@@ -124,11 +157,12 @@
 		51BF89EC24729DBF002F1268 /* FavQuotes */ = {
 			isa = PBXGroup;
 			children = (
+				51838E432473DD33003FF660 /* Coordinator */,
+				51838E3F2473DC21003FF660 /* Features */,
+				51838E402473DC2E003FF660 /* Services */,
+				51838E412473DD1E003FF660 /* Models */,
+				51838E422473DD26003FF660 /* Resources */,
 				51BF89ED24729DBF002F1268 /* AppDelegate.swift */,
-				51BF89F124729DBF002F1268 /* ViewController.swift */,
-				51BF89F324729DBF002F1268 /* Main.storyboard */,
-				51BF89F624729DC0002F1268 /* Assets.xcassets */,
-				51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */,
 				51BF89FB24729DC0002F1268 /* Info.plist */,
 			);
 			path = FavQuotes;
@@ -162,7 +196,6 @@
 				D81326552CCF734A36376683 /* Pods-FavQuotesTests.debug.xcconfig */,
 				6D65C15B95965070E70F1E79 /* Pods-FavQuotesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -277,7 +310,6 @@
 			files = (
 				51BF89FA24729DC0002F1268 /* LaunchScreen.storyboard in Resources */,
 				51BF89F724729DC0002F1268 /* Assets.xcassets in Resources */,
-				51BF89F524729DBF002F1268 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +437,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51BF89F224729DBF002F1268 /* ViewController.swift in Sources */,
 				51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,14 +473,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		51BF89F324729DBF002F1268 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51BF89F424729DBF002F1268 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
