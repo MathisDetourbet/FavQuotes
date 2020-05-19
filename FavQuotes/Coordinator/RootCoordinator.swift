@@ -21,6 +21,19 @@ final class RootCoordinator {
 extension RootCoordinator: UserFavQuotesRouting {
     
     func showLogin() {
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginViewController(viewModel: loginViewModel, routingDelegate: self)
+        rootViewController.viewControllers.first?.present(loginViewController, animated: true, completion: nil)
+    }
+}
+
+extension RootCoordinator: LoginRouting {
+    
+    func dismiss() {
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func userIsLogged() {
         
     }
 }
