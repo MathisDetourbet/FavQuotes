@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51838E482473E1CF003FF660 /* UserFavQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E462473E1CF003FF660 /* UserFavQuotesViewController.swift */; };
+		51838E4B2473E1F0003FF660 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E4A2473E1F0003FF660 /* RootCoordinator.swift */; };
+		51838E4F2473E785003FF660 /* UserFavQuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E4E2473E785003FF660 /* UserFavQuotesViewModel.swift */; };
+		51838E522473E81F003FF660 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E512473E81F003FF660 /* TableViewModel.swift */; };
+		51838E542473E865003FF660 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E532473E865003FF660 /* Quote.swift */; };
+		51838E562473E8C8003FF660 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E552473E8C8003FF660 /* QuoteViewModel.swift */; };
 		51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF89ED24729DBF002F1268 /* AppDelegate.swift */; };
 		51BF89F724729DC0002F1268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F624729DC0002F1268 /* Assets.xcassets */; };
 		51BF89FA24729DC0002F1268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */; };
@@ -39,6 +45,12 @@
 		045993689BC4566EC6470193 /* Pods_FavQuotesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavQuotesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		266C4F7295EA23C694DFDA29 /* Pods_FavQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CB49B6A8B8BA3843B22745 /* Pods-FavQuotes-FavQuotesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavQuotes-FavQuotesUITests.debug.xcconfig"; path = "Target Support Files/Pods-FavQuotes-FavQuotesUITests/Pods-FavQuotes-FavQuotesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		51838E462473E1CF003FF660 /* UserFavQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavQuotesViewController.swift; sourceTree = "<group>"; };
+		51838E4A2473E1F0003FF660 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		51838E4E2473E785003FF660 /* UserFavQuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavQuotesViewModel.swift; sourceTree = "<group>"; };
+		51838E512473E81F003FF660 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		51838E532473E865003FF660 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		51838E552473E8C8003FF660 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		51BF89EA24729DBF002F1268 /* FavQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BF89ED24729DBF002F1268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51BF89F624729DC0002F1268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +110,7 @@
 		51838E3F2473DC21003FF660 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				51838E452473E190003FF660 /* UserFavQuotes */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -112,6 +125,7 @@
 		51838E412473DD1E003FF660 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				51838E532473E865003FF660 /* Quote.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,8 +142,35 @@
 		51838E432473DD33003FF660 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				51838E4A2473E1F0003FF660 /* RootCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		51838E452473E190003FF660 /* UserFavQuotes */ = {
+			isa = PBXGroup;
+			children = (
+				51838E462473E1CF003FF660 /* UserFavQuotesViewController.swift */,
+				51838E4D2473E768003FF660 /* ViewModels */,
+			);
+			path = UserFavQuotes;
+			sourceTree = "<group>";
+		};
+		51838E4D2473E768003FF660 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				51838E4E2473E785003FF660 /* UserFavQuotesViewModel.swift */,
+				51838E552473E8C8003FF660 /* QuoteViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		51838E502473E7E3003FF660 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				51838E512473E81F003FF660 /* TableViewModel.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		51BF89E124729DBF002F1268 = {
@@ -157,12 +198,13 @@
 		51BF89EC24729DBF002F1268 /* FavQuotes */ = {
 			isa = PBXGroup;
 			children = (
+				51BF89ED24729DBF002F1268 /* AppDelegate.swift */,
 				51838E432473DD33003FF660 /* Coordinator */,
 				51838E3F2473DC21003FF660 /* Features */,
 				51838E402473DC2E003FF660 /* Services */,
 				51838E412473DD1E003FF660 /* Models */,
+				51838E502473E7E3003FF660 /* Helpers */,
 				51838E422473DD26003FF660 /* Resources */,
-				51BF89ED24729DBF002F1268 /* AppDelegate.swift */,
 				51BF89FB24729DC0002F1268 /* Info.plist */,
 			);
 			path = FavQuotes;
@@ -437,7 +479,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51838E4F2473E785003FF660 /* UserFavQuotesViewModel.swift in Sources */,
+				51838E522473E81F003FF660 /* TableViewModel.swift in Sources */,
+				51838E482473E1CF003FF660 /* UserFavQuotesViewController.swift in Sources */,
+				51838E4B2473E1F0003FF660 /* RootCoordinator.swift in Sources */,
+				51838E542473E865003FF660 /* Quote.swift in Sources */,
 				51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */,
+				51838E562473E8C8003FF660 /* QuoteViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
