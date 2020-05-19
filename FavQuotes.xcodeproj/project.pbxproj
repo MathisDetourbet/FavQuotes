@@ -16,6 +16,16 @@
 		51838E5F2473F702003FF660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E5D2473F702003FF660 /* LoginViewController.swift */; };
 		51838E602473F702003FF660 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51838E5E2473F702003FF660 /* LoginViewController.xib */; };
 		51838E632473FAC6003FF660 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E622473FAC6003FF660 /* LoginViewModel.swift */; };
+		51838E6624740E86003FF660 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E6524740E86003FF660 /* NetworkLayer.swift */; };
+		51838E6824740F3F003FF660 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E6724740F3F003FF660 /* NetworkService.swift */; };
+		51838E6B247410F6003FF660 /* LoginDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E6A247410F6003FF660 /* LoginDataAccess.swift */; };
+		51838E6D2474115B003FF660 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E6C2474115B003FF660 /* User.swift */; };
+		51838E702474141D003FF660 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E6F2474141D003FF660 /* Configuration.swift */; };
+		51838E72247414CC003FF660 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E71247414CC003FF660 /* UserSession.swift */; };
+		51838E7724741984003FF660 /* RequestProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E7624741984003FF660 /* RequestProperties.swift */; };
+		51838E792474199E003FF660 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E782474199E003FF660 /* EndPoint.swift */; };
+		51838E7C24741B29003FF660 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E7B24741B29003FF660 /* NetworkError.swift */; };
+		51838E8624743FF7003FF660 /* UserLoginParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51838E8524743FF7003FF660 /* UserLoginParameters.swift */; };
 		51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF89ED24729DBF002F1268 /* AppDelegate.swift */; };
 		51BF89F724729DC0002F1268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F624729DC0002F1268 /* Assets.xcassets */; };
 		51BF89FA24729DC0002F1268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */; };
@@ -57,6 +67,16 @@
 		51838E5D2473F702003FF660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		51838E5E2473F702003FF660 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		51838E622473FAC6003FF660 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		51838E6524740E86003FF660 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		51838E6724740F3F003FF660 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		51838E6A247410F6003FF660 /* LoginDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccess.swift; sourceTree = "<group>"; };
+		51838E6C2474115B003FF660 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51838E6F2474141D003FF660 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		51838E71247414CC003FF660 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		51838E7624741984003FF660 /* RequestProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProperties.swift; sourceTree = "<group>"; };
+		51838E782474199E003FF660 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		51838E7B24741B29003FF660 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		51838E8524743FF7003FF660 /* UserLoginParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginParameters.swift; sourceTree = "<group>"; };
 		51BF89EA24729DBF002F1268 /* FavQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BF89ED24729DBF002F1268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51BF89F624729DC0002F1268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +145,8 @@
 		51838E402473DC2E003FF660 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				51838E6924740F5A003FF660 /* DataAccess */,
+				51838E6424740E73003FF660 /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,7 +154,8 @@
 		51838E412473DD1E003FF660 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				51838E532473E865003FF660 /* Quote.swift */,
+				51838E7424741513003FF660 /* Quote */,
+				51838E732474150C003FF660 /* User */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +221,68 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		51838E6424740E73003FF660 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				51838E6524740E86003FF660 /* NetworkLayer.swift */,
+				51838E6724740F3F003FF660 /* NetworkService.swift */,
+				51838E7524741976003FF660 /* Request */,
+				51838E7A24741B1D003FF660 /* Error */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		51838E6924740F5A003FF660 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				51838E6A247410F6003FF660 /* LoginDataAccess.swift */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		51838E6E2474140D003FF660 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				51838E6F2474141D003FF660 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		51838E732474150C003FF660 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				51838E6C2474115B003FF660 /* User.swift */,
+				51838E71247414CC003FF660 /* UserSession.swift */,
+				51838E8524743FF7003FF660 /* UserLoginParameters.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		51838E7424741513003FF660 /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				51838E532473E865003FF660 /* Quote.swift */,
+			);
+			path = Quote;
+			sourceTree = "<group>";
+		};
+		51838E7524741976003FF660 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				51838E7624741984003FF660 /* RequestProperties.swift */,
+				51838E782474199E003FF660 /* EndPoint.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		51838E7A24741B1D003FF660 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				51838E7B24741B29003FF660 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		51BF89E124729DBF002F1268 = {
 			isa = PBXGroup;
 			children = (
@@ -226,8 +311,9 @@
 				51BF89ED24729DBF002F1268 /* AppDelegate.swift */,
 				51838E432473DD33003FF660 /* Coordinator */,
 				51838E3F2473DC21003FF660 /* Features */,
-				51838E402473DC2E003FF660 /* Services */,
 				51838E412473DD1E003FF660 /* Models */,
+				51838E402473DC2E003FF660 /* Services */,
+				51838E6E2474140D003FF660 /* Configuration */,
 				51838E502473E7E3003FF660 /* Helpers */,
 				51838E422473DD26003FF660 /* Resources */,
 				51BF89FB24729DC0002F1268 /* Info.plist */,
@@ -505,14 +591,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51838E6D2474115B003FF660 /* User.swift in Sources */,
+				51838E6824740F3F003FF660 /* NetworkService.swift in Sources */,
+				51838E702474141D003FF660 /* Configuration.swift in Sources */,
 				51838E4F2473E785003FF660 /* UserFavQuotesViewModel.swift in Sources */,
 				51838E522473E81F003FF660 /* TableViewModel.swift in Sources */,
+				51838E792474199E003FF660 /* EndPoint.swift in Sources */,
 				51838E482473E1CF003FF660 /* UserFavQuotesViewController.swift in Sources */,
+				51838E72247414CC003FF660 /* UserSession.swift in Sources */,
 				51838E4B2473E1F0003FF660 /* RootCoordinator.swift in Sources */,
+				51838E8624743FF7003FF660 /* UserLoginParameters.swift in Sources */,
+				51838E7724741984003FF660 /* RequestProperties.swift in Sources */,
+				51838E6B247410F6003FF660 /* LoginDataAccess.swift in Sources */,
 				51838E5F2473F702003FF660 /* LoginViewController.swift in Sources */,
 				51838E542473E865003FF660 /* Quote.swift in Sources */,
 				51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */,
 				51838E562473E8C8003FF660 /* QuoteViewModel.swift in Sources */,
+				51838E7C24741B29003FF660 /* NetworkError.swift in Sources */,
+				51838E6624740E86003FF660 /* NetworkLayer.swift in Sources */,
 				51838E632473FAC6003FF660 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

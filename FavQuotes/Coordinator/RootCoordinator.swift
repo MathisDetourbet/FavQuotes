@@ -12,7 +12,11 @@ final class RootCoordinator {
     
     var rootViewController: UINavigationController!
     
+    private let configuration = Configuration()
+    private let networkService: NetworkLayer
+    
     init() {
+        self.networkService = NetworkService()
         let userFavQuotesViewController = UserFavQuotesViewController(routingDelegate: self)
         rootViewController = UINavigationController(rootViewController: userFavQuotesViewController)
     }
@@ -21,7 +25,8 @@ final class RootCoordinator {
 extension RootCoordinator: UserFavQuotesRouting {
     
     func showLogin() {
-        let loginViewModel = LoginViewModel()
+        let loginDataAccessor: LoginDataAccess = LoginDataAccessor(configuration: self.configuration, networkService: networkService)
+        let loginViewModel = LoginViewModel(dataAccessor: loginDataAccessor)
         let loginViewController = LoginViewController(viewModel: loginViewModel, routingDelegate: self)
         rootViewController.viewControllers.first?.present(loginViewController, animated: true, completion: nil)
     }
@@ -34,6 +39,6 @@ extension RootCoordinator: LoginRouting {
     }
     
     func userIsLogged() {
-        
+        rootViewController.dismiss(animated: true, completion: nil)
     }
 }

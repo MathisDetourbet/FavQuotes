@@ -47,6 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func buildUI() {
         setupNavBar()
         setupOutlets()
+        bindToViewModel()
     }
     
     private func setupOutlets() {
@@ -54,14 +55,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginTextField.placeholder = "login or email"
         loginTextField.returnKeyType = .default
         loginTextField.keyboardType = .emailAddress
+        
+        passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = "password"
+    }
+    
+    private func bindToViewModel() {
         loginTextField.rx.text
             .orEmpty
             .bind(to: loginViewModel.login)
             .disposed(by: disposeBag)
         
-        passwordTextField.delegate = self
-        passwordTextField.isSecureTextEntry = true
-        passwordTextField.placeholder = "password"
         passwordTextField.rx.text
             .orEmpty
             .bind(to: loginViewModel.password)
@@ -70,10 +75,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginViewModel.isValid
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
+        
+        loginViewModel.isUserLogged
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] userIsLoggedIn in
+                if userIsLoggedIn {
+                    self?.routingDelegate?.userIsLogged()
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func setupNavBar() {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
         view.addSubview(navBar)
         
         let navItem = UINavigationItem()
