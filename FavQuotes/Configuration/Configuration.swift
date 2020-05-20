@@ -16,7 +16,8 @@ final class Configuration {
     
     let apiKey = "bc4cba07559aab9baaa480dd418e8e07"
     
-    var authToken: String?
+    var userSession: UserSession?
+    var user: User?
     
     var baseApiUrl: String {
         return host + apiPath

@@ -26,24 +26,60 @@ final class LoginDataAccessor: LoginDataAccess {
         let requestProperties = RequestProperties<[String: UserLoginParameters]>(baseUrl: configuration.baseApiUrl,
                                                   endPoint: .userSession,
                                                   method: .post,
-                                                  headers: buildHeaders(),
+                                                  headers: buildPublicRequestHeaders(),
                                                   parameters: buildUserLoginParameters(with: login, and: password))
         
         networkService.sendRequest(with: requestProperties) { [weak self] (result: Result<UserSession, Error>) in
             switch result {
             case .success(let userSession):
-                self?.configuration.authToken = userSession.userToken
-                completionHandler(nil)
+                self?.configuration.userSession = userSession
+                
+                self?.fetchUser { error in
+                    completionHandler(error)
+                }
+                
             case .failure(let error):
                 completionHandler(error)
             }
         }
     }
     
-    private func buildHeaders() -> HTTPHeaders {
+    private func fetchUser(completionHandler: @escaping (Error?) -> Void) {
+        guard let userName = configuration.userSession?.login else {
+            completionHandler(NetworkError.userNotLoggedIn)
+            return
+        }
+        
+        let requestProperties = RequestProperties<User>(baseUrl: configuration.baseApiUrl,
+                                                        endPoint: .getUser(userName),
+                                                        method: .get,
+                                                        headers: buildPrivateRequestHeaders(),
+                                                        parameters: nil)
+        
+        networkService.sendRequest(with: requestProperties) { [weak self] (result: Result<User, Error>) in
+            switch result {
+            case .success(let user):
+                self?.configuration.user = user
+                completionHandler(nil)
+                
+            case .failure(let error):
+                completionHandler(error)
+            }
+        }
+    }
+    
+    private func buildPublicRequestHeaders() -> HTTPHeaders {
         return [
             "Content-Type": "application/json",
             "Authorization": "Token token=\"\(configuration.apiKey)\""
+        ]
+    }
+    
+    private func buildPrivateRequestHeaders() -> HTTPHeaders {
+        return [
+            "Content-Type": "application/json",
+            "Authorization": "Token token=\"\(configuration.apiKey)\"",
+            "User-Token": configuration.userSession?.userToken ?? ""
         ]
     }
     

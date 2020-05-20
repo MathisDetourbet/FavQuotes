@@ -17,15 +17,18 @@ final class NetworkService: NetworkLayer {
             return
         }
         
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         AF
             .request(url,
                      method: requestProperties.method,
                      parameters: requestProperties.parameters,
-                     encoder: JSONParameterEncoder.default,
+                     encoder: JSONParameterEncoder.prettyPrinted,
                      headers: requestProperties.headers)
             
             .validate()
-            .responseDecodable(of: T.self) { response in
+            .responseDecodable(of: T.self, decoder: jsonDecoder) { response in
                 switch response.result {
                 case .success(let decodedObject):
                     completionHandler(.success(decodedObject))

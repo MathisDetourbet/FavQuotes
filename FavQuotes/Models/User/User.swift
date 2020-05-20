@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct User: Decodable {
-    let nickname: String
-    let pictureUrlString: String
-    let favQuotesCount: UInt
+struct User: Codable {
+    let login: String
+    let picUrl: String
+    let publicFavoritesCount: UInt
 }

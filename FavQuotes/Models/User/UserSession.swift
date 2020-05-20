@@ -14,7 +14,7 @@ struct UserSession {
     let email: String
 }
 
-extension UserSession: Decodable {
+extension UserSession: Codable {
     
     enum UserSessionCodingKeys: String, CodingKey {
         case userToken = "User-Token"
