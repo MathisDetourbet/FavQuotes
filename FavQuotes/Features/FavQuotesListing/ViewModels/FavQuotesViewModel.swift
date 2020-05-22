@@ -45,7 +45,7 @@ final class FavQuotesViewModel: TableViewModel {
                 self?.needsReloadFavQuotesSubject.onNext(())
                 
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

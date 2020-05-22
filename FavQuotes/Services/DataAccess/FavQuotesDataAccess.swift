@@ -18,6 +18,8 @@ protocol FavQuotesDataAccess {
 final class FavQuotesApiDataAccessor: FavQuotesDataAccess {
     private let configuration: Configuration
     private let networkService: NetworkLayer
+    private let localStorageService = LocalStorageService()
+    private let disposeBag = DisposeBag()
     
     init(configuration: Configuration, networkService: NetworkLayer) {
         self.configuration = configuration
@@ -30,7 +32,11 @@ final class FavQuotesApiDataAccessor: FavQuotesDataAccess {
     
     func fetchUserFavQuotes(completionHandler: @escaping (Result<[Quote], Error>) -> Void) {
         guard let userSession = configuration.userAuthenticationService.userSession else {
-            completionHandler(.failure(NetworkError.userNotLoggedIn))
+            localStorageService.fetchQuotesIfAvailable().subscribe(onSuccess: { quotes in
+                completionHandler(.success(quotes))
+            }) { error in
+                completionHandler(.failure(NetworkError.userNotLoggedIn))
+            }.disposed(by: disposeBag)
             return
         }
         
@@ -40,14 +46,42 @@ final class FavQuotesApiDataAccessor: FavQuotesDataAccess {
                                                                headers: buildHeaders(),
                                                                parameters: nil)
         
-        networkService.sendRequest(with: requestProperties) { (result: Result<FavQuotesResponse, Error>) in
+        networkService.sendRequest(with: requestProperties) { [weak self] (result: Result<FavQuotesResponse, Error>) in
+            guard let self = self else {
+                return
+            }
+            
             switch result {
             case .success(let favQuotesResponse):
-                completionHandler(.success(favQuotesResponse.quotes))
-            case .failure(let error):
-                completionHandler(.failure(error))
+                let quotes = favQuotesResponse.quotes
+                completionHandler(.success(quotes))
+                self.saveQuotesLocally(quotes)
+                break
+                
+            case .failure(let error as NetworkError):
+                switch error {
+                case .userNotLoggedIn:
+                    self.localStorageService.fetchQuotesIfAvailable().subscribe(onSuccess: { quotes in
+                        completionHandler(.success(quotes))
+                    }) { error in
+                        completionHandler(.failure(NetworkError.userNotLoggedIn))
+                    }.disposed(by: self.disposeBag)
+                    break
+                    
+                default: completionHandler(.failure(error))
+                }
+                
+            case .failure(let error): completionHandler(.failure(error))
             }
         }
+    }
+    
+    private func saveQuotesLocally(_ quotes: [Quote]) {
+        localStorageService.saveLocallyQuotes(quotes: quotes).subscribe(onCompleted: {
+            print("New fav quotes are saved locally!")
+        }) { error in
+            print("Error when saving new fav quotes: \(error.localizedDescription)")
+        }.disposed(by: self.disposeBag)
     }
     
     private func buildHeaders() -> HTTPHeaders {

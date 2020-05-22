@@ -39,14 +39,14 @@ final class LoginViewModel: LoginDelegate {
             dataAccessor.fetchUserSession(login: try loginSubject.value(), password: try passwordSubject.value()) { [weak self] error in
                 if let error = error {
                     // Display error to the user in a AlertController 
-                    print(error)
+                    print(error.localizedDescription)
                 } else {
                     // User is logged in
                     self?.isUserLoggedSubject.onNext(true)
                 }
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
     

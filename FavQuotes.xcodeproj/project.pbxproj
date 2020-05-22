@@ -34,6 +34,7 @@
 		51ADA9292477FBB800B53AEC /* FavQuoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADA9272477FBB800B53AEC /* FavQuoteDetailsViewController.swift */; };
 		51ADA92A2477FBB800B53AEC /* FavQuoteDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51ADA9282477FBB800B53AEC /* FavQuoteDetailsViewController.xib */; };
 		51ADA92D2477FE7900B53AEC /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADA92C2477FE7900B53AEC /* QuoteDetailsViewModel.swift */; };
+		51ADA9302478110F00B53AEC /* LocaleStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADA92F2478110F00B53AEC /* LocaleStorageService.swift */; };
 		51BF89EE24729DBF002F1268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF89ED24729DBF002F1268 /* AppDelegate.swift */; };
 		51BF89F724729DC0002F1268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F624729DC0002F1268 /* Assets.xcassets */; };
 		51BF89FA24729DC0002F1268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51BF89F824729DC0002F1268 /* LaunchScreen.storyboard */; };
@@ -93,6 +94,7 @@
 		51ADA9272477FBB800B53AEC /* FavQuoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavQuoteDetailsViewController.swift; sourceTree = "<group>"; };
 		51ADA9282477FBB800B53AEC /* FavQuoteDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavQuoteDetailsViewController.xib; sourceTree = "<group>"; };
 		51ADA92C2477FE7900B53AEC /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
+		51ADA92F2478110F00B53AEC /* LocaleStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleStorageService.swift; sourceTree = "<group>"; };
 		51BF89EA24729DBF002F1268 /* FavQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BF89ED24729DBF002F1268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51BF89F624729DC0002F1268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		51838E402473DC2E003FF660 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				51ADA92E247810F700B53AEC /* LocalStorageService */,
 				51838E8A2475B066003FF660 /* Authentication */,
 				51838E6924740F5A003FF660 /* DataAccess */,
 				51838E6424740E73003FF660 /* Network */,
@@ -337,6 +340,14 @@
 				51ADA92C2477FE7900B53AEC /* QuoteDetailsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		51ADA92E247810F700B53AEC /* LocalStorageService */ = {
+			isa = PBXGroup;
+			children = (
+				51ADA92F2478110F00B53AEC /* LocaleStorageService.swift */,
+			);
+			path = LocalStorageService;
 			sourceTree = "<group>";
 		};
 		51BF89E124729DBF002F1268 = {
@@ -654,6 +665,7 @@
 				51ADA9202477E92400B53AEC /* FavQuoteTableViewCell.swift in Sources */,
 				51838E6824740F3F003FF660 /* NetworkService.swift in Sources */,
 				51838E702474141D003FF660 /* Configuration.swift in Sources */,
+				51ADA9302478110F00B53AEC /* LocaleStorageService.swift in Sources */,
 				51ADA9252477EF2800B53AEC /* FavQuotesResponse.swift in Sources */,
 				51838E4F2473E785003FF660 /* FavQuotesViewModel.swift in Sources */,
 				51838E522473E81F003FF660 /* TableViewModel.swift in Sources */,
