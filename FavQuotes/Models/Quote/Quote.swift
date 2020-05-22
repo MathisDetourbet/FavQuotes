@@ -10,6 +10,14 @@ import Foundation
 
 struct Quote: Decodable {
     let id: UInt
+    let dialogue: Bool
+    let `private`: Bool
+    let tags: [String]
+    let url: String
+    let favoritesCount: UInt
+    let upvotesCount: UInt
+    let downvotesCount: UInt
     let author: String
+    let authorPermalink: String
     let body: String
 }

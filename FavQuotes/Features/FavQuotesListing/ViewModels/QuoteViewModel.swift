@@ -9,7 +9,7 @@
 import Foundation
 
 final class QuoteViewModel: FavQuotesPresenter {
-    private let model: Quote
+    let model: Quote
     
     var authorString: String {
         return model.author
@@ -21,5 +21,9 @@ final class QuoteViewModel: FavQuotesPresenter {
     
     init(model: Quote) {
         self.model = model
+    }
+    
+    func instantiateQuoteDetailsViewModel() -> QuoteDetailsViewModel {
+        return QuoteDetailsViewModel(model: model)
     }
 }

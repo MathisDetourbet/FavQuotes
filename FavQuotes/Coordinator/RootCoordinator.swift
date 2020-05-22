@@ -31,6 +31,11 @@ extension RootCoordinator: FavQuotesRouting {
         let loginViewController = LoginViewController(viewModel: loginViewModel, routingDelegate: self)
         rootViewController.viewControllers.last?.present(loginViewController, animated: true, completion: nil)
     }
+    
+    func showFavQuoteDetails(quoteDetailsViewModel: QuoteDetailsViewModel) {
+        let quoteDetailsViewController = FavQuoteDetailsViewController(viewModel: quoteDetailsViewModel)
+        rootViewController.pushViewController(quoteDetailsViewController, animated: true)
+    }
 }
 
 extension RootCoordinator: LoginRouting {

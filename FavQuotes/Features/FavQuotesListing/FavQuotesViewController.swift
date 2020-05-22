@@ -11,6 +11,7 @@ import RxSwift
 
 protocol FavQuotesRouting: class {
     func showLogin()
+    func showFavQuoteDetails(quoteDetailsViewModel: QuoteDetailsViewModel)
 }
 
 final class FavQuotesViewController: UIViewController {
@@ -111,5 +112,8 @@ extension FavQuotesViewController: UITableViewDataSource {
 extension FavQuotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedQuoteDetailsViewModel = viewModel.didSelectQuoteAt(indexPath)
+        routingDelegate?.showFavQuoteDetails(quoteDetailsViewModel: selectedQuoteDetailsViewModel)
     }
 }

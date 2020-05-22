@@ -13,7 +13,6 @@ final class FavQuotesViewModel: TableViewModel {
     internal var model: [QuoteViewModel]
     
     private let disposeBag = DisposeBag()
-    
     private let dataAccess: FavQuotesDataAccess
     
     public var isUserLoggedObs: Observable<Bool> {
@@ -21,7 +20,7 @@ final class FavQuotesViewModel: TableViewModel {
     }
     
     private let needsReloadFavQuotesSubject = PublishSubject<Void>()
-    var needsReloadFavQuotesObs: Observable<Void> {
+    public var needsReloadFavQuotesObs: Observable<Void> {
         return needsReloadFavQuotesSubject.asObservable()
     }
     
@@ -32,6 +31,10 @@ final class FavQuotesViewModel: TableViewModel {
         isUserLoggedObs.startWith(false).distinctUntilChanged().subscribe(onNext: { [weak self] _ in
             self?.fetchUserFavQuotes()
         }).disposed(by: disposeBag)
+    }
+    
+    func didSelectQuoteAt(_ indexPath: IndexPath) -> QuoteDetailsViewModel {
+        return model[indexPath.row].instantiateQuoteDetailsViewModel()
     }
     
     private func fetchUserFavQuotes() {
