@@ -24,7 +24,7 @@ final class NetworkService: NetworkLayer {
             .request(url,
                      method: requestProperties.method,
                      parameters: requestProperties.parameters,
-                     encoder: JSONParameterEncoder.prettyPrinted,
+                     encoder: JSONParameterEncoder.default,
                      headers: requestProperties.headers)
             
             .validate()

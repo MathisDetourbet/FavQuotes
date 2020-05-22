@@ -24,7 +24,7 @@ final class LoginDataAccessor: LoginDataAccess {
     
     func fetchUserSession(login: String, password: String, completionHandler: @escaping (Error?) -> Void) {
         let requestProperties = RequestProperties<[String: UserLoginParameters]>(baseUrl: configuration.baseApiUrl,
-                                                  endPoint: .userSession,
+                                                  endPoint: .fetchUserSession,
                                                   method: .post,
                                                   headers: buildPublicRequestHeaders(),
                                                   parameters: buildUserLoginParameters(with: login, and: password))
@@ -32,7 +32,7 @@ final class LoginDataAccessor: LoginDataAccess {
         networkService.sendRequest(with: requestProperties) { [weak self] (result: Result<UserSession, Error>) in
             switch result {
             case .success(let userSession):
-                self?.configuration.userSession = userSession
+                self?.configuration.userAuthenticationService.userSession = userSession
                 
                 self?.fetchUser { error in
                     completionHandler(error)
@@ -45,13 +45,13 @@ final class LoginDataAccessor: LoginDataAccess {
     }
     
     private func fetchUser(completionHandler: @escaping (Error?) -> Void) {
-        guard let userName = configuration.userSession?.login else {
+        guard let userName = configuration.userAuthenticationService.userSession?.login else {
             completionHandler(NetworkError.userNotLoggedIn)
             return
         }
         
         let requestProperties = RequestProperties<User>(baseUrl: configuration.baseApiUrl,
-                                                        endPoint: .getUser(userName),
+                                                        endPoint: .fetchUser(userName),
                                                         method: .get,
                                                         headers: buildPrivateRequestHeaders(),
                                                         parameters: nil)
@@ -59,7 +59,7 @@ final class LoginDataAccessor: LoginDataAccess {
         networkService.sendRequest(with: requestProperties) { [weak self] (result: Result<User, Error>) in
             switch result {
             case .success(let user):
-                self?.configuration.user = user
+                self?.configuration.userAuthenticationService.user = user
                 completionHandler(nil)
                 
             case .failure(let error):
@@ -79,7 +79,7 @@ final class LoginDataAccessor: LoginDataAccess {
         return [
             "Content-Type": "application/json",
             "Authorization": "Token token=\"\(configuration.apiKey)\"",
-            "User-Token": configuration.userSession?.userToken ?? ""
+            "User-Token": configuration.userAuthenticationService.userSession?.userToken ?? ""
         ]
     }
     

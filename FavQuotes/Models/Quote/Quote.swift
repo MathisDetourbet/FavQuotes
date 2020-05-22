@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Quote {
+struct Quote: Decodable {
     let id: UInt
     let author: String
     let body: String

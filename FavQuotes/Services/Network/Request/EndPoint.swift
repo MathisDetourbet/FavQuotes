@@ -9,19 +9,19 @@
 import Foundation
 
 enum EndPoint: CustomStringConvertible {
-    case userSession
-    case getUser(_ userName: String)
-    case userQuotes(_ userName: String)
+    case fetchUserSession
+    case fetchUser(_ userName: String)
+    case fetchUserQuotes(_ userName: String)
     
     var description: String {
         switch self {
-        case .userSession:
+        case .fetchUserSession:
             return "/session"
             
-        case .getUser(let userName):
+        case .fetchUser(let userName):
             return "/users/\(userName)"
             
-        case .userQuotes(let userName):
+        case .fetchUserQuotes(let userName):
             return "/quotes/?filter=\(userName)&type=user"
         }
     }

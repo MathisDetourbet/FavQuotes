@@ -8,8 +8,16 @@
 
 import Foundation
 
-final class QuoteViewModel {
+final class QuoteViewModel: FavQuotesPresenter {
     private let model: Quote
+    
+    var authorString: String {
+        return model.author
+    }
+    
+    var bodyString: String {
+        return model.body
+    }
     
     init(model: Quote) {
         self.model = model

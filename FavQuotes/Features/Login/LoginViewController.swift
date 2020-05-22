@@ -12,7 +12,7 @@ import RxCocoa
 
 protocol LoginRouting: class {
     func dismiss()
-    func userIsLogged()
+    func loginSuccess()
 }
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -64,23 +64,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func bindToViewModel() {
         loginTextField.rx.text
             .orEmpty
-            .bind(to: loginViewModel.login)
+            .bind(to: loginViewModel.loginSubject)
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .orEmpty
-            .bind(to: loginViewModel.password)
+            .bind(to: loginViewModel.passwordSubject)
             .disposed(by: disposeBag)
         
-        loginViewModel.isValid
+        loginViewModel.isValidObs
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        loginViewModel.isUserLogged
+        loginViewModel.isUserLoggedSubject
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] userIsLoggedIn in
                 if userIsLoggedIn {
-                    self?.routingDelegate?.userIsLogged()
+                    self?.routingDelegate?.loginSuccess()
                 }
             }).disposed(by: disposeBag)
     }
